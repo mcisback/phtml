@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        form div, button {
+            margin: 1rem;
+        }
+
+        form {
+            margin-top: 15%;
+            margin-left: 40%;
+        }
+    </style>
+</head>
+<body>
+    <form action="/api/user/save">
+        <div>
+            <bind-to to="name">
+                <input type="text" name="name" id="name" placeholder="Name">
+            </bind-to>
+        </div>
+        <div>
+            <input type="text" name="surname" id="surname" placeholder="Surname">
+        </div>
+        
+        <div>
+            <input type="text" name="username" id="username" placeholder="Username">
+        </div>
+        
+        <div>
+            <input type="email" name="email" id="email" placeholder="Email">
+        </div>
+        
+        <div>
+            <input type="password" name="password" id="password" placeholder="Password">
+        </div>
+
+        <if-block expr="name === 'Barbabietola'">
+            <div>
+                <h1>Hello Barbabietola !</h1>
+            </div>
+        </if-block>
+
+        <foreach-loop source="bananas" as="banana">
+            <div>
+                {banana} Banana 
+            </div>
+        </foreach-loop>
+
+        <for-loop from="0" to="100" step="1">
+            <div>
+                {counter} Banana 
+            </div>
+        </for-loop>
+
+        <button type="submit">
+            Save
+        </button>
+    </form>
+
+    <script src="/phtml.js"></script>
+    
+</body>
+</html>
