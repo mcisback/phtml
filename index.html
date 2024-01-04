@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Programmable HTML</title>
     <style>
         * {
             box-sizing: border-box;
@@ -22,6 +22,9 @@
 <body>
     <form action="/api/user/save">
         <div>
+            <div>
+                <h1>Bind To</h1>
+            </div>
             <bind-to to="name">
                 <input type="text" name="name" id="name" placeholder="Name">
             </bind-to>
@@ -42,23 +45,51 @@
             <input type="password" name="password" id="password" placeholder="Password">
         </div>
 
-        <if-block expr="name === 'Barbabietola'">
+        <div>
             <div>
-                <h1>Hello Barbabietola !</h1>
+                <h1>If Block</h1>
             </div>
-        </if-block>
+            <if-block expr="name === 'Barbabietola'">
+                <div>
+                    <h1>Hello Barbabietola !</h1>
+                </div>
+            </if-block>
 
-        <foreach-loop source="bananas" as="banana">
             <div>
-                {banana} Banana 
+                <h1>Foreach Loop</h1>
             </div>
-        </foreach-loop>
+    
+            <foreach-loop source="bananas" as="banana">
+                <div>
+                    {banana} Banana 
+                </div>
+            </foreach-loop>
 
-        <for-loop from="0" to="100" step="1">
             <div>
-                {counter} Banana 
+                <h1>For Loop</h1>
             </div>
-        </for-loop>
+    
+            <for-loop from="1" to="6" step="1">
+                <div>
+                    {counter} Banana 
+                </div>
+            </for-loop>
+        </div>
+
+        <div>
+            <div>
+                <h1>Json Get</h1>
+            </div>
+            <json-get endpoint="https://jsonplaceholder.typicode.com/todos" target="todos"></json-get>
+
+            <json-loop endpoint="https://jsonplaceholder.typicode.com/todos" target="todo">
+                <div>
+                    TITLE {todo.title}
+                    <br>
+                    ID {todo.id}
+                </div>
+            </json-loop>
+        </div>
 
         <button type="submit">
             Save
